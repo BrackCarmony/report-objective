@@ -1,14 +1,6 @@
 var jwt = require('jsonwebtoken');
 var axios = require('axios');
 
-var coded = jwt.sign({
-  trackable:"pizza",
-  user:1776,
-  note:"Delete Me",
-  quantifier:1,
-  witness:24602,
-  }, 'gx6RAi9OScT3Q4qwDym0IE88GQhvmE8d');
-
 var config = {
   url:"http://localhost:3000",
   app:"Demo App",
