@@ -1,0 +1,14 @@
+{
+  "name": "devmtn-report-objective",
+  "version": "0.1.0",
+  "description": "This is a node module to facilitate talking with the DevMountain objective tracker.  This should probably only used for DevMountain projects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brack Carmony",
+  "license": "MIT",
+  "dependencies": {
+    "jsonwebtoken": "^7.1.6"
+  }
+}
