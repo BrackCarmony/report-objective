@@ -6,7 +6,7 @@ app.use(bodyParser.json());
 
 
 //bring in the reportObjective;
-const reportObjective = require('../index.js');
+const reportObjective = require('../lib/index.js');
   //Configure the report connection as needed
 reportObjective.config({
   url:"http://localhost:3000",
