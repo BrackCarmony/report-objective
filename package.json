@@ -2,7 +2,7 @@
   "name": "devmtn-report-objective",
   "version": "0.1.1",
   "description": "This is a node module to facilitate talking with the DevMountain objective tracker.  This should probably only used for DevMountain projects.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d lib"
