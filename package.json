@@ -11,5 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "jsonwebtoken": "^7.1.6"
+  },
+  "devDependencies": {
+    "babel-polyfill": "^6.9.1"
   }
 }

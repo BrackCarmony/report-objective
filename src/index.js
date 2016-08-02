@@ -1,3 +1,4 @@
+require("babel-polyfill");
 var jwt = require('jsonwebtoken');
 var axios = require('axios');
 
