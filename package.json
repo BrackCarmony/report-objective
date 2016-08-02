@@ -1,6 +1,6 @@
 {
   "name": "devmtn-report-objective",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "This is a node module to facilitate talking with the DevMountain objective tracker.  This should probably only used for DevMountain projects.",
   "main": "lib/index.js",
   "scripts": {
