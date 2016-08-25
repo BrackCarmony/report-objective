@@ -44,11 +44,29 @@ app.post('/api/record', (req, res)=>{
 //   .then(function(response){
 //     console.log("Why no fire?");
 //     console.log(response);
+//     console.log(response._trackables);
 //   });
 
+// reportObjective.createTrack({
+//   name:"My New Trackable",
+//
+//   trackables:["a","b","c","dead on arrival"]
+// })
+
+// reportObjective.createTrackable({
+//   name:"b",
+//   description:"Student Does the B thingy To Be The B-iest B"
+// })
+
+// reportObjective.getRecordsForTrackables({
+//   name:'a'
+// },{user:1772}).then(function(response){
+//   console.log(response);
+// })
+
 // reportObjective.report(
-//   {trackable:'b',
-//   user:1771,
+//   {trackable:'a',
+//   user:1773,
 //   quantifier:2,
 //   note:"Note are awesome",
 //   witness:666}
@@ -81,13 +99,6 @@ app.post('/api/trackables', (req, res)=>{
     res.send(response);
   });
 })
-
-app.put('/api/trackables', (req, res)=>{
-  reportObjective.updateTrackable(req.body).then((response)=>{
-    res.send(response);
-  });
-})
-
 
   //Example Get Records By Trackable.
   //Uses 2 queries, the first describes the tracks you are looking for

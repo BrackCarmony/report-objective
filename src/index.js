@@ -39,42 +39,35 @@ function sign(record){
 }
 
 function post(coded){
-  return axios.post(config.url + "/records",
+  return axios.post(config.url + "/api/recordTrackable",
   {token:coded, application:config.app})
   .then(success)
   .catch(failure)
 }
 
 function readTrackables(coded){
-  return axios.get(config.url+`/trackables?token=${coded}
+  return axios.get(config.url+`/api/readTrackable?token=${coded}
     &application=${config.app}`)
   .then(success)
   .catch(failure)
 }
 
 function readRecords(coded){
-  return axios.get(config.url+`/records?token=${coded}
+  return axios.get(config.url+`/api/readRecord?token=${coded}
     &application=${config.app}`)
   .then(success)
   .catch(failure)
 }
 
 function createTrackable(coded){
-  return axios.post(config.url + "/trackables",
-  {token:coded, application:config.app})
-  .then(success)
-  .catch(failure)
-}
-
-function updateTrackable(coded){
-  return axios.patch(config.url + "/trackables/null",
+  return axios.post(config.url + "/api/createTrackable",
   {token:coded, application:config.app})
   .then(success)
   .catch(failure)
 }
 
 function createTrack(track){
-  return axios.post(config.url + "/tracks",
+  return axios.post(config.url + "/api/createTrack",
   {token:track, application:config.app})
   .then(success)
   .catch(failure)
@@ -86,8 +79,6 @@ function readTracks(coded){
   .then(success)
   .catch(failure)
 }
-
-
 
 module.exports = {
   report:function(record){
@@ -110,14 +101,11 @@ module.exports = {
   },
   createTrack:function(query){
     if (!query.name) return new Error("name required for track");
-    if (!query.description) return new Error("decription required for track");
-    if (!query._trackables||query._trackables.length<2) return new Error("Property _trackables required to be an array of at least 2 trackables");
+    if (!query.trackables||query.trackables.length<2)
+      return new Error("Property trackables required to be an array of at least 2 trackables");
 
     return createTrack(sign(query));
 
-  },
-  updateTrackable:function(query){
-    return updateTrackable(sign(query));
   },
   getRecordsForTrackables:function(query, recordQuery ={}){
     var promise = new Promise((resolve, reject)=>{
@@ -151,12 +139,13 @@ module.exports = {
         var count = 0;
         trackables.forEach(trackable => {
           recordQuery._trackable = trackable._id;
-          readRecords(sign(recordQuery)).then(response => {
+          readRecords(sign(recordQuery)).then(resp => {
             // console.log ("response", response);
-            trackable.records = response;
+            trackable.records = resp;
             count++;
             if(count == trackables.length){
-              resolve(trackables);
+              console.log("lg",response[0]);
+              resolve(response[0]);
             }
           });
         })
